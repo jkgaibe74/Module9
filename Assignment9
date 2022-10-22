@@ -1,0 +1,148 @@
+#1
+
+assignment_data <- data.frame( Country = c("France","Spain","Germany","Spain","Germany", "France","Spain","France","Germany","France"), age = c(44,27,30,38,40,35,52,48,45,37), salary = c(6000,5000,7000,4000,8000), Purchased=c("No","Yes","No","No","Yes", "Yes","No","Yes","No","Yes"))
+ 
+
+results <- t(assignment_data)
+results
+
+           [,1]     [,2]    [,3]      [,4]    [,5]      [,6]     [,7]    [,8]     [,9]      [,10]   
+Country   "France" "Spain" "Germany" "Spain" "Germany" "France" "Spain" "France" "Germany" "France"
+age       "44"     "27"    "30"      "38"    "40"      "35"     "52"    "48"     "45"      "37"    
+salary    "6000"   "5000"  "7000"    "4000"  "8000"    "6000"   "5000"  "7000"   "4000"    "8000"  
+Purchased "No"     "Yes"   "No"      "No"    "Yes"     "Yes"    "No"    "Yes"    "No"      "Yes" 
+
+# or
+assignment_data <- data.frame( Country = c("France","Spain","Germany","Spain","Germany", "France","Spain","France","Germany","France"), age = c(44,27,30,38,40,35,52,48,45,37), salary = c(6000,5000,7000,4000,8000), Purchased=c("No","Yes","No","No","Yes", "Yes","No","Yes","No","Yes"))
+results <- table(assignment_data)
+results
+, , salary = 4000, Purchased = No
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  0  0  0  0
+Germany  0  0  0  0  0  0  0  1  0  0
+Spain    0  0  0  0  1  0  0  0  0  0
+
+, , salary = 5000, Purchased = No
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  0  0  0  0
+Germany  0  0  0  0  0  0  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  1
+
+, , salary = 6000, Purchased = No
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  1  0  0  0
+Germany  0  0  0  0  0  0  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  0
+
+, , salary = 7000, Purchased = No
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  0  0  0  0
+Germany  0  1  0  0  0  0  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  0
+
+, , salary = 8000, Purchased = No
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  0  0  0  0
+Germany  0  0  0  0  0  0  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  0
+
+, , salary = 4000, Purchased = Yes
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  0  0  0  0
+Germany  0  0  0  0  0  0  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  0
+
+, , salary = 5000, Purchased = Yes
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  0  0  0  0
+Germany  0  0  0  0  0  0  0  0  0  0
+Spain    1  0  0  0  0  0  0  0  0  0
+
+, , salary = 6000, Purchased = Yes
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  1  0  0  0  0  0  0  0
+Germany  0  0  0  0  0  0  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  0
+
+, , salary = 7000, Purchased = Yes
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  0  0  0  0  0  1  0
+Germany  0  0  0  0  0  0  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  0
+
+, , salary = 8000, Purchased = Yes
+
+age
+Country   27 30 35 37 38 40 44 45 48 52
+France   0  0  0  1  0  0  0  0  0  0
+Germany  0  0  0  0  0  1  0  0  0  0
+Spain    0  0  0  0  0  0  0  0  0  0
+
+
+# or
+> country <-c("France","Spain","Germany","Spain","Germany", "France","Spain","France","Germany","France")
+> age <- c(44,27,30,38,40,35,52,48,45,37)
+> salary <- c(6000,5000,7000,4000,8000)
+> Purchased <- c("No","Yes","No","No","Yes", "Yes","No","Yes","No","Yes")
+> assignment_data <- data.frame(country, age, salary, Purchased)
+> assignment_data
+
+
+
+
+#2
+
+assignment9 <- table(mtcars$gear, mtcars$cyl, dnn=c("gear", "cyl"))
+                      
+assignment9
+
+cyl
+gear  4  6  8
+3  1  2 12
+4  8  4  0
+5  2  1  2
+
+addmargins(assignment9)
+
+cyl
+gear   4  6  8 Sum
+3    1  2 12  15
+4    8  4  0  12
+5    2  1  2   5
+Sum 11  7 14  32
+
+prop.table(assignment9)
+
+cyl
+gear       4       6       8
+3 0.03125 0.06250 0.37500
+4 0.25000 0.12500 0.00000
+5 0.06250 0.03125 0.06250
+
+prop.table(assignment9, margin = 1)
+
+cyl
+gear          4          6          8
+3 0.06666667 0.13333333 0.80000000
+4 0.66666667 0.33333333 0.00000000
+5 0.40000000 0.20000000 0.40000000
+
+
